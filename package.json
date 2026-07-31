@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "name": "test-task-sveak",
+  "version": "1.0.0",
+  "scripts": {
+    "pug": "pug src/pug/index.pug -o src -P",
+    "dev": "npm run pug && vite",
+    "build": "npm run pug && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "sass": "^1.69.0",
+    "pug": "^3.0.0",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}

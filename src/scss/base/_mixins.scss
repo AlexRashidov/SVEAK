@@ -1,0 +1,84 @@
+// ==========================================
+// МИКСИНЫ
+// ==========================================
+// @description - Переиспользуемые блоки стилей
+// ==========================================
+
+@use 'variables' as *;
+
+/**
+ * Обрезка текста с многоточием
+ * @param {number} $lines - Количество строк (по умолчанию 1)
+ * @example
+ *   .title { @include text-overflow(2); }
+ */
+@mixin text-overflow($lines: 1) {
+  // Валидация
+  @if $lines < 1 {
+    @warn "⚠️ text-overflow: количество строк должно быть >= 1. Передано: #{$lines}";
+    $lines: 1;
+  }
+
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+/**
+ * Адаптивный медиа-запрос
+ * @param {string} $breakpoint - Название брейкпоинта
+ * @example
+ *   .container { @include respond-to(desktop) { padding: 40px; } }
+ */
+@mixin respond-to($breakpoint) {
+  // Встроенная карта брейкпоинтов (не зависит от внешней функции)
+  $breakpoints: (
+          mobile: 320px,
+          tablet: 640px,
+          desktop: 1024px,
+          wide: 1280px
+  );
+
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ Брейкпоинт '#{$breakpoint}' не найден. Доступные: mobile, tablet, desktop, wide.";
+  }
+}
+
+/**
+ * Эффект при наведении (поднятие с тенью)
+ * @param {number} $offset - Смещение в px (по умолчанию 8px)
+ * @example
+ *   .card { @include hover-shadow(12px); }
+ */
+@mixin hover-shadow($offset: 8px) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-#{$offset});
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    transform: translateY(-#{$offset * 0.5});
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/**
+ * Центрирование через Flexbox
+ * @example
+ *   .container { @include flex-center; }
+ */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

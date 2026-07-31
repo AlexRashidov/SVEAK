@@ -1,0 +1,14 @@
+extends layout/layout.pug
+
+include components/_card.pug
+
+block content
+    section.grid-section
+        .container
+            .grid#grid
+                - var totalCards = 50
+                - var description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                - var i = 1
+                while i <= totalCards
+                    +card('Проект ' + i, description, i)
+                    - i = i + 1

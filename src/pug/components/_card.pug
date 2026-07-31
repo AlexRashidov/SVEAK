@@ -1,0 +1,31 @@
+//- ==========================================
+//- МИКСИН КАРТОЧКИ
+//- ==========================================
+
+mixin card(title, description, index)
+    .card(
+        class=(index !== undefined ? 'card--' + index : '')
+        data-index=index
+    )
+        .card__image-placeholder
+            svg(
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true"
+            )
+                rect(x="2" y="2" width="20" height="20" rx="4")
+                circle(cx="9" cy="9" r="2")
+                path(d="M22 16L17 11L8 20")
+
+        .card__content
+            h3.card__title= title || 'Без названия'
+            p.card__description= description || 'Описание отсутствует'
+
+            button.card__button(
+                type="button"
+                aria-label='Подробнее о ' + (title || 'проекте')
+            ) Подробнее

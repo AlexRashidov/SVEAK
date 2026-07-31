@@ -1,0 +1,67 @@
+// ==========================================
+// БАЗОВЫЙ ЛЭЙАУТ
+// ==========================================
+// @description - Базовый шаблон для всех страниц
+// @uses - Расширяется в index.pug и других страницах
+// ==========================================
+
+doctype html
+html(lang="ru")
+    head
+        //- Мета-теги
+        meta(charset="UTF-8")
+        meta(
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        )
+        meta(
+            name="description"
+            content="Тестовое задание для Frontend разработчика"
+        )
+        meta(
+            property="og:title"
+            content="Тестовое задание"
+        )
+        meta(
+            property="og:description"
+            content="Frontend разработчик — тестовое задание"
+        )
+        meta(
+            name="theme-color"
+            content="#4CAF50"
+        )
+
+        //- Favicon (создать в assets/favicon.svg)
+        //- @todo - Добавить favicon
+        //- link(rel="icon" type="image/svg+xml" href="./assets/favicon.svg")
+
+        title Тестовое задание
+
+        //- Стили
+        link(rel="stylesheet" href="/src/scss/main.scss")
+
+        //- Preconnect для быстрой загрузки шрифтов (если есть)
+        //- link(rel="preconnect" href="https://fonts.googleapis.com")
+
+    body
+
+        //- Основной контейнер (для прижатия футера)
+        .app-container
+            //- Шапка
+            include ../components/_header.pug
+
+            //- Меню
+            include ../components/_menu.pug
+
+            //- Основной контент
+            main.main-content#main-content(
+                role="main"
+                aria-label="Основной контент"
+            )
+                block content
+
+            //- Футер
+            include ../components/_footer.pug
+
+        //- Скрипты
+        script(type="module" src="./js/main.js")

@@ -1,0 +1,77 @@
+// ==========================================
+// МЕНЮ
+// ==========================================
+// @description - Боковое навигационное меню
+// @features - Выезжает слева, имеет свой скролл
+// ==========================================
+
+include _icons.pug
+
+nav.menu(
+    id="menu"
+    role="navigation"
+    aria-label="Главное меню"
+)
+    //- Затемненный фон (overlay)
+    .menu__overlay
+
+    //- Контент меню
+    .menu__content
+        //- Кнопка закрытия (крестик) - только на мобилке
+        button.menu__close(
+            id="menuClose"
+            type="button"
+            aria-label="Закрыть меню"
+        )
+            span.close-line
+            span.close-line
+
+        //- Список пунктов меню
+        ul.menu__list
+            //- @todo - Заменить href на реальные URL
+            //- @todo - Иконки можно вынести в data-атрибуты
+
+            //- Главная (активная)
+            li.menu__item.menu__item--active
+                a(
+                    href="#"
+                    aria-current="page"
+                )
+                    span.menu__icon
+                        +icon-home()
+                    span.menu__text Главная
+
+            //- О нас
+            li.menu__item
+                a(href="#")
+                    span.menu__icon
+                        +icon-about()
+                    span.menu__text О нас
+
+            //- Услуги
+            li.menu__item
+                a(href="#")
+                    span.menu__icon
+                        +icon-services()
+                    span.menu__text Услуги
+
+            //- Портфолио
+            li.menu__item
+                a(href="#")
+                    span.menu__icon
+                        +icon-portfolio()
+                    span.menu__text Портфолио
+
+            //- Блог
+            li.menu__item
+                a(href="#")
+                    span.menu__icon
+                        +icon-blog()
+                    span.menu__text Блог
+
+            //- Контакты
+            li.menu__item
+                a(href="#")
+                    span.menu__icon
+                        +icon-contacts()
+                    span.menu__text Контакты

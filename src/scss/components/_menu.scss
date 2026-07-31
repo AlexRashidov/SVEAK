@@ -1,0 +1,231 @@
+// ==========================================
+// МЕНЮ
+// ==========================================
+// @description - Боковое навигационное меню
+// @features - Выезжает слева, свой скролл, адаптив
+// ==========================================
+
+@use '../base/variables' as *;
+
+.menu {
+  // ==========================================
+  // МОБИЛЬНАЯ ВЕРСИЯ: fixed, скрыто по умолчанию
+  // ==========================================
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+  pointer-events: none; // Не перехватывает клики, пока скрыто
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity $transition-speed ease,
+  visibility $transition-speed ease;
+
+  // ==========================================
+  // ДЕСКТОП: меню всегда видно слева
+  // ==========================================
+
+  @media (min-width: get-breakpoint(desktop)) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 50;
+    pointer-events: all;
+    visibility: visible;
+    opacity: 1;
+    background: $menu-bg;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.1);
+  }
+
+  // ==========================================
+  // АКТИВНОЕ СОСТОЯНИЕ (только для мобилки)
+  // ==========================================
+
+  &.active {
+    pointer-events: all;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // ==========================================
+  // OVERLAY (затемнённый фон) — только для мобилки
+  // ==========================================
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity $transition-speed ease;
+
+    // Появляется при открытом меню
+    .menu.active & {
+      opacity: 1;
+    }
+
+    // На десктопе overlay не нужен (меню всегда видно)
+    @media (min-width: get-breakpoint(desktop)) {
+      display: none;
+    }
+  }
+
+  // ==========================================
+  // КОНТЕНТ МЕНЮ (выезжает слева)
+  // ==========================================
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    background: $menu-bg;
+    padding: 24px 20px;
+    transform: translateX(-100%); // Скрыто за левым краем
+    transition: transform $transition-speed $transition-timing;
+    overflow-y: auto; // Свой скролл, если пунктов много
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.1);
+
+    // Выезжает при открытии
+    .menu.active & {
+      transform: translateX(0);
+    }
+
+    // ДЕСКТОП: контент занимает всю ширину меню
+    @media (min-width: get-breakpoint(desktop)) {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      transform: translateX(0); // Всегда видно
+      padding: 32px 24px;
+      box-shadow: none;
+      background: $menu-bg;
+    }
+  }
+
+  // ==========================================
+  // КНОПКА ЗАКРЫТИЯ (крестик) — только на мобилке
+  // ==========================================
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-bottom: 32px;
+    padding: 0;
+    position: relative;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba($menu-text, 0.1);
+    }
+
+    // Две линии, образующие крестик
+    .close-line {
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 2.5px;
+      background: $menu-text;
+      border-radius: 2px;
+
+      &:nth-child(1) {
+        transform: rotate(45deg); // Первая линия — диагональ
+      }
+      &:nth-child(2) {
+        transform: rotate(-45deg); // Вторая линия — диагональ в другую сторону
+      }
+    }
+
+    // На десктопе кнопка закрытия не нужна
+    @media (min-width: get-breakpoint(desktop)) {
+      display: none;
+    }
+  }
+
+  // ==========================================
+  // СПИСОК ПУНКТОВ МЕНЮ
+  // ==========================================
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin-bottom: 4px;
+    border-radius: 12px;
+    transition: background $transition-speed ease;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      color: $menu-text;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 12px;
+      transition: background $transition-speed ease;
+
+      &:hover {
+        background: rgba($menu-active, 0.5);
+      }
+    }
+
+    // Активный пункт — подсвечен
+    &--active {
+      background: $menu-active;
+
+      a {
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Иконка в пункте меню
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+}
+
+// ==========================================
+// БЛОКИРОВКА СКРОЛЛА СТРАНИЦЫ (только мобилка)
+// ==========================================
+
+// При открытом меню body получает класс .no-scroll
+body.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+// На десктопе скролл не блокируется
+@media (min-width: get-breakpoint(desktop)) {
+  body.no-scroll {
+    overflow: auto;
+    position: static;
+    width: auto;
+  }
+}

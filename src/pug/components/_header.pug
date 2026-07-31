@@ -1,0 +1,48 @@
+// ==========================================
+// ХЕДЕР
+// ==========================================
+// @description - Верхняя навигационная панель
+// @features - Бургер-меню, навигационные иконки
+// ==========================================
+
+include _icons.pug
+
+header.header
+    .header__container
+        //- Бургер-меню (слева)
+        button.header__burger(
+            id="burgerBtn"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+        )
+            span.burger-line
+            span.burger-line
+            span.burger-line
+
+        //- Навигационные иконки (справа)
+        //- CSS: margin-left: auto прижимает их вправо
+        .header__nav-icons
+            //- Треугольник
+            button.nav-icon(
+                type="button"
+                aria-label="Треугольник"
+                aria-pressed="false"
+            )
+                +icon-triangle()
+
+            //- Кружок (активный)
+            button.nav-icon.nav-icon--active(
+                type="button"
+                aria-label="Кружок"
+                aria-pressed="true"
+            )
+                +icon-circle()
+
+            //- Квадрат
+            button.nav-icon(
+                type="button"
+                aria-label="Квадрат"
+                aria-pressed="false"
+            )
+                +icon-square()

@@ -1,0 +1,162 @@
+// ==========================================
+// ХЕДЕР
+// ==========================================
+// @description - Верхняя навигационная панель
+// @features - Sticky, бургер с анимацией, иконки справа
+// ==========================================
+
+@use '../base/variables' as *;
+
+.header {
+  // --- Прилипает к верху при скролле ---
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  // --- Цвет фона (из темы) ---
+  background: var(--color-primary, #4CAF50);
+  height: $header-height;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background $transition-speed ease;
+
+  // --- Контейнер (на всю ширину) ---
+  &__container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
+    width: 100%; // Хедер на всю ширину (без max-width)
+  }
+
+  // ==========================================
+  // БУРГЕР (слева)
+  // ==========================================
+
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+
+    // --- Три полоски ---
+    .burger-line {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      background: $color-white;
+      border-radius: 2px;
+      transition: all $transition-speed $transition-timing;
+      transform-origin: center;
+    }
+
+    // --- Активное состояние (превращение в крестик) ---
+    &.active {
+      .burger-line {
+        // Верхняя полоска → поворот на 45°
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        // Средняя полоска → исчезает
+        &:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+        // Нижняя полоска → поворот на -45°
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+    }
+
+    // --- На десктопе бургер скрыт ---
+    @media (min-width: get-breakpoint(desktop)) {
+      display: none;
+    }
+  }
+
+  // ==========================================
+  // НАВИГАЦИОННЫЕ ИКОНКИ (прижаты к правому краю)
+  // ==========================================
+  // Треугольник, кружок, квадрат
+  // ==========================================
+
+  &__nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto; // Прижимает иконки вправо
+    margin-right: 12px; // Отступ перед профилем
+
+    .nav-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: rgba($color-white, 0.7);
+      cursor: pointer;
+      padding: 0;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+
+      // --- Ховер ---
+      &:hover {
+        color: $color-white;
+        background: rgba($color-white, 0.15);
+      }
+
+      // --- Активное состояние (клик) ---
+      &:active {
+        transform: scale(0.9);
+      }
+
+      // --- Активная иконка (подсвечена) ---
+      &--active {
+        color: $color-white;
+        background: rgba($color-white, 0.2);
+      }
+
+      // --- SVG внутри иконки ---
+      svg {
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+    }
+  }
+
+  // ==========================================
+  // ПРОФИЛЬ (крайний справа)
+  // ==========================================
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: $color-white;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+
+    // --- Ховер с анимацией вращения ---
+    &:hover {
+      background: rgba($color-white, 0.15);
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    // --- SVG внутри профиля ---
+    svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+  }
+}

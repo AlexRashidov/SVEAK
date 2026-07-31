@@ -1,0 +1,88 @@
+// ==========================================
+// ФУТЕР
+// ==========================================
+// @description - Подвал сайта с информацией о проекте
+// ==========================================
+
+@use '../base/variables' as *;
+
+.footer {
+  // --- Базовые стили ---
+  background: var(--color-footer-bg, #2E7D32);
+  color: rgba($color-white, 0.9);
+  padding: $footer-padding 20px;
+  margin-top: auto;
+  transition: background $transition-speed ease;
+
+  // --- Контейнер ---
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // --- Заголовок ---
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: $color-white;
+  }
+
+  // --- Текст ---
+  &__text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.85;
+    max-width: 600px;
+  }
+
+  // --- Нижняя часть (копирайт) ---
+  &__bottom {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba($color-white, 0.1);
+  }
+
+  // --- Копирайт ---
+  &__copyright {
+    font-size: 12px;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  // --- Ссылки ---
+  a {
+    color: inherit;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-white;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  }
+
+  // --- Адаптив ---
+  @media (max-width: 768px) {
+    padding: $footer-padding 16px;
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__text {
+      font-size: 13px;
+      max-width: 100%;
+    }
+
+    &__bottom {
+      margin-top: 12px;
+      padding-top: 12px;
+    }
+  }
+}
