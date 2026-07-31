@@ -1,0 +1,845 @@
+
+<!-- ==========================================-->
+<!-- БАЗОВЫЙ ЛЭЙАУТ-->
+<!-- ==========================================-->
+<!-- @description - Базовый шаблон для всех страниц-->
+<!-- @uses - Расширяется в index.pug и других страницах-->
+<!-- ==========================================--><!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Тестовое задание для Frontend разработчика">
+    <meta property="og:title" content="Тестовое задание">
+    <meta property="og:description" content="Frontend разработчик — тестовое задание">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Тестовое задание</title>
+    <link rel="stylesheet" href="/src/scss/main.scss">
+    <script type="module" crossorigin src="/assets/index-Wld_S-1s.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-nsdYmi7m.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- ==========================================-->
+      <!-- ХЕДЕР-->
+      <!-- ==========================================-->
+      <!-- @description - Верхняя навигационная панель-->
+      <!-- @features - Бургер-меню, навигационные иконки-->
+      <!-- ==========================================-->
+      <!-- ==========================================-->
+      <!-- ИКОНКИ-->
+      <!-- ==========================================-->
+      <!-- @description - Переиспользуемые SVG-иконки-->
+      <!-- ==========================================-->
+      <!-- ==========================================-->
+      <!-- ИКОНКИ ДЛЯ ХЕДЕРА-->
+      <!-- ==========================================-->
+      <!-- ==========================================-->
+      <!-- ИКОНКИ ДЛЯ МЕНЮ-->
+      <!-- ==========================================-->
+      <header class="header">
+        <div class="header__container">
+          <button class="header__burger" id="burgerBtn" type="button" aria-label="Открыть меню" aria-expanded="false"><span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span></button>
+          <div class="header__nav-icons">
+            <button class="nav-icon" type="button" aria-label="Треугольник" aria-pressed="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polygon points="12 2 2 22 22 22 12 2"></polygon>
+                    </svg>
+            </button>
+            <button class="nav-icon nav-icon--active" type="button" aria-label="Кружок" aria-pressed="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+            </button>
+            <button class="nav-icon" type="button" aria-label="Квадрат" aria-pressed="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- ==========================================-->
+      <!-- МЕНЮ-->
+      <!-- ==========================================-->
+      <!-- @description - Боковое навигационное меню-->
+      <!-- @features - Выезжает слева, имеет свой скролл-->
+      <!-- ==========================================-->
+      <!-- ==========================================-->
+      <!-- ИКОНКИ-->
+      <!-- ==========================================-->
+      <!-- @description - Переиспользуемые SVG-иконки-->
+      <!-- ==========================================-->
+      <!-- ==========================================-->
+      <!-- ИКОНКИ ДЛЯ ХЕДЕРА-->
+      <!-- ==========================================-->
+      <!-- ==========================================-->
+      <!-- ИКОНКИ ДЛЯ МЕНЮ-->
+      <!-- ==========================================-->
+      <nav class="menu" id="menu" role="navigation" aria-label="Главное меню">
+        <div class="menu__overlay"></div>
+        <div class="menu__content">
+          <button class="menu__close" id="menuClose" type="button" aria-label="Закрыть меню"><span class="close-line"></span><span class="close-line"></span></button>
+          <ul class="menu__list">
+            <li class="menu__item menu__item--active"><a href="#" aria-current="page"><span class="menu__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M3 12L12 3L21 12"></path>
+                          <path d="M5 10V19H9V14H15V19H19V10"></path>
+                        </svg></span><span class="menu__text">Главная</span></a></li>
+            <li class="menu__item"><a href="#"><span class="menu__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M12 2V12L17 17"></path>
+                        </svg></span><span class="menu__text">О нас</span></a></li>
+            <li class="menu__item"><a href="#"><span class="menu__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                          <path d="M16 21V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V21"></path>
+                        </svg></span><span class="menu__text">Услуги</span></a></li>
+            <li class="menu__item"><a href="#"><span class="menu__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M4 20H20M4 4H20M4 8H20M4 12H20M4 16H20"></path>
+                        </svg></span><span class="menu__text">Портфолио</span></a></li>
+            <li class="menu__item"><a href="#"><span class="menu__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path>
+                          <path d="M12 16V12"></path>
+                          <path d="M12 8H12.01"></path>
+                        </svg></span><span class="menu__text">Блог</span></a></li>
+            <li class="menu__item"><a href="#"><span class="menu__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M22 6.5L12 13L2 6.5M2 17L12 23L22 17M2 12L12 18L22 12"></path>
+                        </svg></span><span class="menu__text">Контакты</span></a></li>
+          </ul>
+        </div>
+      </nav>
+      <main class="main-content" id="main-content" role="main" aria-label="Основной контент">
+        <section class="grid-section">
+          <div class="container">
+            <div class="grid" id="grid">
+              <div class="card card--1" data-index="1">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 1</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 1">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--2" data-index="2">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 2</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 2">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--3" data-index="3">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 3</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 3">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--4" data-index="4">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 4</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 4">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--5" data-index="5">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 5</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 5">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--6" data-index="6">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 6</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 6">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--7" data-index="7">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 7</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 7">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--8" data-index="8">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 8</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 8">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--9" data-index="9">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 9</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 9">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--10" data-index="10">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 10</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 10">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--11" data-index="11">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 11</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 11">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--12" data-index="12">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 12</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 12">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--13" data-index="13">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 13</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 13">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--14" data-index="14">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 14</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 14">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--15" data-index="15">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 15</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 15">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--16" data-index="16">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 16</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 16">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--17" data-index="17">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 17</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 17">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--18" data-index="18">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 18</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 18">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--19" data-index="19">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 19</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 19">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--20" data-index="20">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 20</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 20">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--21" data-index="21">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 21</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 21">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--22" data-index="22">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 22</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 22">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--23" data-index="23">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 23</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 23">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--24" data-index="24">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 24</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 24">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--25" data-index="25">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 25</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 25">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--26" data-index="26">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 26</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 26">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--27" data-index="27">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 27</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 27">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--28" data-index="28">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 28</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 28">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--29" data-index="29">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 29</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 29">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--30" data-index="30">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 30</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 30">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--31" data-index="31">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 31</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 31">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--32" data-index="32">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 32</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 32">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--33" data-index="33">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 33</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 33">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--34" data-index="34">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 34</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 34">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--35" data-index="35">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 35</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 35">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--36" data-index="36">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 36</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 36">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--37" data-index="37">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 37</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 37">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--38" data-index="38">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 38</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 38">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--39" data-index="39">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 39</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 39">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--40" data-index="40">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 40</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 40">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--41" data-index="41">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 41</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 41">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--42" data-index="42">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 42</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 42">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--43" data-index="43">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 43</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 43">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--44" data-index="44">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 44</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 44">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--45" data-index="45">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 45</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 45">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--46" data-index="46">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 46</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 46">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--47" data-index="47">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 47</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 47">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--48" data-index="48">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 48</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 48">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--49" data-index="49">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 49</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 49">Подробнее</button>
+                </div>
+              </div>
+              <div class="card card--50" data-index="50">
+                <div class="card__image-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="4"></rect>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="M22 16L17 11L8 20"></path>
+                  </svg>
+                </div>
+                <div class="card__content">
+                  <h3 class="card__title">Проект 50</h3>
+                  <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="card__button" type="button" aria-label="Подробнее о Проект 50">Подробнее</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- ==========================================-->
+      <!-- ФУТЕР-->
+      <!-- ==========================================-->
+      <!-- @description - Подвал сайта с информацией о проекте-->
+      <!-- ==========================================-->
+      <footer class="footer" role="contentinfo" aria-label="Подвал сайта">
+        <div class="footer__container">
+          <div class="footer__content">
+            <h2 class="footer__title">What is Lorem Ipsum?</h2>
+            <p class="footer__text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              It has survived not only five centuries, but also the leap into electronic typesetting.
+            </p>
+          </div>
+          <div class="footer__bottom">
+            <p class="footer__copyright">&copy;<span class="footer__year">2026</span></p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
